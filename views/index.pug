@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  
+  div.container
+    div
+      h1= title
+      p Welcome to #{title}
+      a(target='_blank', href='https://github.com/jgmurillo10/tweets-nodejs') Repositorio
+      div.row.panel-group
+
+        for object in objects
+          .col-md-6.panel.col-sm-6.border.round-border
+            .row
+            .col-md-4
+              img.img-rounded(src=object.user.profile_image_url_https, alt='#{object.user.name}')
+            .col-md-8
+              .row
+                h2 #{object.user.name}
+            .row
+              .col-md-6
+                | #{object.user.created_at}
+              .col-md-6
+                | #{object.created_at}
+            .row
+              | #{object.text}
+
+
